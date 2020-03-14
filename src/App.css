@@ -1,0 +1,73 @@
+@import "~antd/dist/antd.css";
+
+.App {
+    width: 100vw;
+    height: 100vh;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.App > .bar-left {
+    height: 100vh;
+    width: 70px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: #3c40c6;
+}
+
+.app-icon {
+    width: 70px;
+    height: 70px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.App > .bar-right {
+    height: 100vh;
+    width: 100%;
+}
+
+.bar-right > .right-top-bar {
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-right: 5px;
+    padding-left: 10px;
+}
+
+.bar-right > .right-container {
+    width: 100%;
+    height: calc(100vh - 30px);
+    background-color: antiquewhite;
+    padding: 20px;
+}
