@@ -1,11 +1,12 @@
 {
   "name": "edever-client",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "author": {
     "name": "Herbert He",
     "email": "Herbert.He0229@gmail.com"
   },
   "description": "Edever Client",
+  "repository": "https://github.com/HerbertHe/EdeverClient",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.0.2",
@@ -58,7 +59,7 @@
       "installerHeaderIcon": "build/favicon.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Eraac"
+      "shortcutName": "EdeverClient"
     },
     "publish": [
       {
