@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Getreq } from "../utils/netrequest"
-import { Empty } from "antd"
+import { Empty, message } from "antd"
+import { IconFont } from "./iconfont"
 import "./edever.css"
 
 function Edever() {
@@ -12,6 +13,19 @@ function Edever() {
             if (res.status === 200) setDatas(res.data.reverse())
         })
     }, [])
+    const getDownload = (name, url) => {
+        message.info(`前往下载${name}`)
+        const shell = window.electron.shell
+        shell.openExternal(url)
+        const date = new Date()
+        const timestamp = date.getTime().toString()
+        const time = date.toLocaleString().replace(" ", "-")
+        const content = {
+            name: name,
+            time: time
+        }
+        window.localStorage.setItem(timestamp, JSON.stringify(content))
+    }
     return (
         <div className="Edever">
             {datas.length !== 0 &&
@@ -32,7 +46,41 @@ function Edever() {
                         </div>
 
                         <div>创建时间: {item.created_at}</div>
-                        <div>{item.assets[0]["browser_download_url"]}</div>
+
+                        {item.assets.map(i => (
+                            <div
+                                className="edevers"
+                                key={i["browser_download_url"]}
+                            >
+                                {i["name"] && (
+                                    <span>
+                                        <span>
+                                            <span style={{ color: "#3c40c6" }}>
+                                                {i["name"].replace(".zip", "")}
+                                            </span>
+                                            :{" "}
+                                            <span>
+                                                {i["browser_download_url"]}
+                                            </span>
+                                        </span>
+                                        <button
+                                            className="download"
+                                            onClick={() =>
+                                                getDownload(
+                                                    i["name"],
+                                                    i["browser_download_url"]
+                                                )
+                                            }
+                                        >
+                                            <IconFont
+                                                type="icon-down"
+                                                style={{ fontSize: 30 }}
+                                            />
+                                        </button>
+                                    </span>
+                                )}
+                            </div>
+                        ))}
                     </div>
                 ))}
             {datas.length === 0 && (

@@ -65,3 +65,20 @@
     -webkit-box-align: center;
     align-items: center;
 }
+
+.edevers > span {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.edevers > span > .download {
+    border: none;
+    background-color: transparent;
+}

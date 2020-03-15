@@ -4,7 +4,7 @@ import Text from "antd/lib/typography/Text"
 
 export default function Card(props) {
     const openUrl = url => {
-        let shell = window.electron.shell
+        const shell = window.electron.shell
         shell.openExternal(url)
     }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Select, Empty } from "antd"
+import { Select, Empty, message } from "antd"
 import { Getreq } from "../utils/netrequest"
 import "./package.css"
 const { Option } = Select
@@ -46,6 +46,21 @@ function Package() {
     const changePack = e => {
         setPack(e)
     }
+
+    const getDownload = (name, url) => {
+        message.info(`前往下载${name}`)
+        const shell = window.electron.shell
+        shell.openExternal(url)
+        const date = new Date()
+        const timestamp = date.getTime().toString()
+        const time = date.toLocaleString().replace(" ", "-")
+        const content = {
+            name: name,
+            time: time
+        }
+        window.localStorage.setItem(timestamp, JSON.stringify(content))
+    }
+
     return (
         <div className="Package">
             <div className="top">
@@ -73,8 +88,22 @@ function Package() {
 
                                 <div className="tag">Tag: {item.tag_name}</div>
                             </div>
-
-                            <div>创建时间: {item.created_at}</div>
+                            <div className="subline">
+                                <div>创建时间: {item.created_at}</div>
+                                <button
+                                    className="download"
+                                    onClick={() =>
+                                        getDownload(
+                                            item.name,
+                                            item.assets[0][
+                                                "browser_download_url"
+                                            ]
+                                        )
+                                    }
+                                >
+                                    下载
+                                </button>
+                            </div>
                             <div>{item.assets[0]["browser_download_url"]}</div>
                         </div>
                     ))}
