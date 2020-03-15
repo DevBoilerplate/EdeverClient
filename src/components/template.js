@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Getreq } from "../utils/netrequest"
 import Card from "./coms/Card"
+import "./template.css"
 
 function Template() {
     const [initial, setInitial] = useState(true)
@@ -17,7 +18,6 @@ function Template() {
                 back.url = res.data.html_url
                 back.updated = res.data.updated_at
                 back.desp = res.data.description
-                console.log(back)
                 setSample(back)
             })
             Getreq(
@@ -28,7 +28,6 @@ function Template() {
                 back.url = res.data.html_url
                 back.updated = res.data.updated_at
                 back.desp = res.data.description
-                console.log(back)
                 setSqlite3(back)
             })
             Getreq(
@@ -39,7 +38,6 @@ function Template() {
                 back.url = res.data.html_url
                 back.updated = res.data.updated_at
                 back.desp = res.data.description
-                console.log(back)
                 SetTypescript(back)
             })
             setInitial(false)

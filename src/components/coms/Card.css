@@ -36,8 +36,3 @@
     font-size: medium;
     font-weight: 300;
 }
-
-.repo > text {
-    text-decoration: underline;
-    cursor: pointer;
-}
