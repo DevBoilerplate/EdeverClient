@@ -68,6 +68,6 @@
 .bar-right > .right-container {
     width: 100%;
     height: calc(100vh - 30px);
-    background-color: antiquewhite;
+    background-color: #d2dae2;
     padding: 20px;
 }

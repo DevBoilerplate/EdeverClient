@@ -1,0 +1,43 @@
+.Card {
+    width: 100%;
+    border-radius: 7px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 1px 1px #485460;
+    margin-bottom: 20px;
+}
+
+.Card > .top {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.top > .temp {
+    color: #3c40c6;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.top > .updated {
+    color: #575fcf;
+    font-size: small;
+    font-weight: 500;
+}
+
+.bottom > .repo {
+    color: #ff3f34;
+    font-size: medium;
+    font-weight: 300;
+}
+
+.repo > text {
+    text-decoration: underline;
+    cursor: pointer;
+}

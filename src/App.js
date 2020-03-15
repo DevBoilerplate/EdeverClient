@@ -8,7 +8,7 @@ import Download from "./components/download"
 import { IconFont } from "./components/iconfont"
 
 function App() {
-    const [page, setPage] = useState("template")
+    const [page, setPage] = useState("Template")
     const [help, setHelp] = useState(false)
 
     const minimizeWin = () => {
@@ -26,7 +26,7 @@ function App() {
                 <div className="app-top">
                     <div
                         className="app-icon"
-                        onClick={() => setPage("template")}
+                        onClick={() => setPage("Template")}
                     >
                         <IconFont
                             type="icon-template"
@@ -35,14 +35,14 @@ function App() {
                     </div>
                     <div
                         className="app-icon"
-                        onClick={() => setPage("package")}
+                        onClick={() => setPage("Package")}
                     >
                         <IconFont
                             type="icon-package"
                             style={{ fontSize: 30, color: "white" }}
                         />
                     </div>
-                    <div className="app-icon" onClick={() => setPage("edever")}>
+                    <div className="app-icon" onClick={() => setPage("Edever")}>
                         <IconFont
                             type="icon-cli"
                             style={{ fontSize: 30, color: "white" }}
@@ -50,7 +50,7 @@ function App() {
                     </div>
                     <div
                         className="app-icon"
-                        onClick={() => setPage("download")}
+                        onClick={() => setPage("Download")}
                     >
                         <IconFont
                             type="icon-download"
@@ -84,10 +84,10 @@ function App() {
                     </div>
                 </div>
                 <div className="right-container">
-                    {page === "template" && <Template />}
-                    {page === "package" && <Package />}
-                    {page === "edever" && <Edever />}
-                    {page === "download" && <Download />}
+                    {page === "Template" && <Template />}
+                    {page === "Package" && <Package />}
+                    {page === "Edever" && <Edever />}
+                    {page === "Download" && <Download />}
                 </div>
             </div>
             {help && <Help control={setHelp} />}
