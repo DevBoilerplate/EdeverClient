@@ -14,7 +14,7 @@ function Edever() {
         })
         return () => {}
     }, [])
-    const getDownload = (name, url) => {
+    const getDownload = (name, tag, url) => {
         message.info(`前往下载${name}`)
         const shell = window.electron.shell
         shell.openExternal(url)
@@ -23,6 +23,7 @@ function Edever() {
         const time = date.toLocaleString().replace(" ", "-")
         const content = {
             name: name,
+            tag: tag,
             time: time
         }
         window.localStorage.setItem(timestamp, JSON.stringify(content))
@@ -69,6 +70,7 @@ function Edever() {
                                             onClick={() =>
                                                 getDownload(
                                                     i["name"],
+                                                    item.tag_name,
                                                     i["browser_download_url"]
                                                 )
                                             }

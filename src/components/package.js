@@ -48,7 +48,7 @@ function Package() {
         setPack(e)
     }
 
-    const getDownload = (name, url) => {
+    const getDownload = (name, tag, url) => {
         message.info(`前往下载${name}`)
         const shell = window.electron.shell
         shell.openExternal(url)
@@ -57,6 +57,7 @@ function Package() {
         const time = date.toLocaleString().replace(" ", "-")
         const content = {
             name: name,
+            tag: tag,
             time: time
         }
         window.localStorage.setItem(timestamp, JSON.stringify(content))
@@ -96,6 +97,7 @@ function Package() {
                                     onClick={() =>
                                         getDownload(
                                             item.name,
+                                            item.tag_name,
                                             item.assets[0][
                                                 "browser_download_url"
                                             ]

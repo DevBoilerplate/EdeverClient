@@ -11,11 +11,13 @@ function Download() {
         let dataS = []
         for (let i = 0; i < window.localStorage.length; i++) {
             let key = window.localStorage.key(i)
+            let item = JSON.parse(window.localStorage.getItem(key))
             dataS.push({
                 id: key,
                 key: key,
-                name: JSON.parse(window.localStorage.getItem(key)).name,
-                time: JSON.parse(window.localStorage.getItem(key)).time
+                name: item.name,
+                tag: item.tag,
+                time: item.time
             })
         }
         setData(dataS.reverse())
@@ -29,6 +31,10 @@ function Download() {
         {
             title: "文件名",
             dataIndex: "name"
+        },
+        {
+            title: "标签",
+            dataIndex: "tag"
         },
         {
             title: "时间",

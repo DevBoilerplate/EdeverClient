@@ -25,7 +25,7 @@ function Help(props) {
                     <div>Author: Herbert He</div>
                     <div>Email: admin@jieec.cn / Herbert.He0229@gmail.com</div>
                     <div>Blog: https://goer.icu</div>
-                    <div>Version: v1.1.0</div>
+                    <div>Version: v1.1.1</div>
                     <div>
                         Issues: https://github.com/HerbertHe/EdeverClient/issues
                     </div>
