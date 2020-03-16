@@ -45,7 +45,7 @@
 
 .App > .bar-right {
     height: 100vh;
-    width: 100%;
+    width: calc(100vw - 70px);
 }
 
 .bar-right > .right-top-bar {
@@ -67,7 +67,7 @@
 
 .bar-right > .right-container {
     width: 100%;
-    height: calc(100vh - 30px);
+    height: calc(100% - 30px);
     background-color: #d2dae2;
 }
 
@@ -88,4 +88,136 @@
 
 ::-webkit-scrollbar-thumb:window-inactive {
     background: #575fcf;
+}
+
+.App > .go-update {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 142, 155, 0.3);
+}
+
+.go-update > .container {
+    margin-top: 20vh;
+    border-radius: 10px;
+    width: 500px;
+    height: auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.go-update > .container > .header {
+    background-color: rgba(60, 64, 198, 1);
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    color: white;
+}
+
+.go-update > .container > .body {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+}
+
+.go-update > .container > .bottom {
+    height: 50px;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.btn1 {
+    background-color: #3c40c6;
+    width: 50%;
+    height: 100%;
+    color: white;
+    border-radius: 0 0 0px 10px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn2 {
+    background-color: #ff3f34;
+    height: 100%;
+    width: 50%;
+    color: white;
+    border-radius: 0 0 10px 0;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.info {
+    margin-bottom: 30px;
+}
+
+.progress{
+    width: 100%;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.func-container {
+    width: 100%;
+    height: calc(100% - 25px);
 }

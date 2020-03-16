@@ -1,6 +1,6 @@
 {
   "name": "edever-client",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": {
     "name": "Herbert He",
     "email": "Herbert.He0229@gmail.com"
@@ -19,6 +19,7 @@
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^0.9.1",
     "electron-is-dev": "^1.1.0",
+    "electron-updater": "^4.2.5",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "react": "^16.12.0",
@@ -60,8 +61,8 @@
     },
     "publish": [
       {
-        "provider": "github",
-        "url": "https://github.com"
+        "provider": "generic",
+        "url": "https://server.jieec.cn/edeverclient/"
       }
     ]
   },
