@@ -14,7 +14,7 @@ const appUrl = isDev ? devUrl : localUrl
 let mainWindow
 
 function createWindow() {
-    require("devtron").install()
+    // require("devtron").install()
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
@@ -26,7 +26,7 @@ function createWindow() {
         }
     })
     mainWindow.loadURL(appUrl)
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 }
 
 app.on("ready", createWindow)

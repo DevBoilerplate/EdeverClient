@@ -3,6 +3,7 @@
     height: 100%;
     background-color: white;
     padding: 10px;
+    overflow: hidden;
 }
 
 .no-data {
@@ -22,4 +23,32 @@
 .Download > .data {
     width: 100%;
     height: 100%;
+}
+
+.Download > .data > .handle-data {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.handle-data > button {
+    color: white;
+    background-color: #3c40c6;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 1px 1px #808e9b;
+    outline: none;
+    margin-right: 20px;
+}
+
+.handle-data > button:disabled {
+    background-color: #808e9b;
 }

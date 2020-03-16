@@ -12,6 +12,7 @@ function Edever() {
         ).then(res => {
             if (res.status === 200) setDatas(res.data.reverse())
         })
+        return () => {}
     }, [])
     const getDownload = (name, url) => {
         message.info(`前往下载${name}`)

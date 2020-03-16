@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react"
-import { Empty, Table } from "antd"
+import { Empty, Table, message } from "antd"
 import "./download.css"
 
 function Download() {
     const [data, setData] = useState([])
+    const [selectedRowKeys, setSelectedRowKeys] = useState([])
+    const [refresh, setRefresh] = useState(true)
+
     useEffect(() => {
         let dataS = []
         for (let i = 0; i < window.localStorage.length; i++) {
-            let aData = {}
             let key = window.localStorage.key(i)
-            let item = window.localStorage.getItem(key)
-            aData.id = key
-            aData.key = key
-            aData.name = JSON.parse(item).name
-            aData.time = JSON.parse(item).time
-            dataS.push(aData)
+            dataS.push({
+                id: key,
+                key: key,
+                name: JSON.parse(window.localStorage.getItem(key)).name,
+                time: JSON.parse(window.localStorage.getItem(key)).time
+            })
         }
         setData(dataS.reverse())
-    }, [])
+    }, [refresh])
 
     const columns = [
         {
@@ -34,11 +36,41 @@ function Download() {
         }
     ]
 
+    const rowSelection = {
+        selectedRowKeys,
+        onChange: selectedRowKeys => setSelectedRowKeys(selectedRowKeys)
+    }
+
+    const removeItems = () => {
+        selectedRowKeys.forEach(value => {
+            window.localStorage.removeItem(value)
+        })
+        message.success("已移除选择记录")
+        setSelectedRowKeys([])
+        setRefresh(!refresh)
+    }
+
     return (
         <div className="Download">
             {window.localStorage.length !== 0 && (
                 <div className="data">
-                    <Table dataSource={data} columns={columns} />
+                    <div className="handle-data">
+                        <button
+                            disabled={selectedRowKeys.length === 0}
+                            onClick={() => removeItems()}
+                        >
+                            移除记录
+                        </button>
+                        {selectedRowKeys.length !== 0 && (
+                            <span>{`已选择${selectedRowKeys.length}项`}</span>
+                        )}
+                    </div>
+                    <Table
+                        rowSelection={rowSelection}
+                        dataSource={data}
+                        columns={columns}
+                        pagination={{ pageSize: 7 }}
+                    />
                 </div>
             )}
 

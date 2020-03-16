@@ -42,6 +42,7 @@ function Template() {
             })
             setInitial(false)
         }
+        return () => {}
     }, [initial])
     return (
         <div className="Template">

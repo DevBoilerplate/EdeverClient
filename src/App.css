@@ -70,3 +70,22 @@
     height: calc(100vh - 30px);
     background-color: #d2dae2;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #d2dae2;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #3c40c6;
+    box-shadow: inset 0 0 6px #808e9b;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #575fcf;
+}

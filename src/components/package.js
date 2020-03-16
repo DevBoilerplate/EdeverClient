@@ -42,6 +42,7 @@ function Package() {
                 break
             }
         }
+        return () => {}
     }, [pack])
     const changePack = e => {
         setPack(e)
