@@ -18,7 +18,7 @@ const appUrl = isDev ? devUrl : localUrl
 let mainWindow, webContents
 
 function createWindow() {
-    require("devtron").install()
+    // require("devtron").install()
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,

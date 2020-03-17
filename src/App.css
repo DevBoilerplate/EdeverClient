@@ -68,7 +68,7 @@
 .bar-right > .right-container {
     width: 100%;
     height: calc(100% - 30px);
-    background-color: #d2dae2;
+    background-color: white;
 }
 
 ::-webkit-scrollbar {
@@ -215,6 +215,7 @@
     height: 25px;
     padding-left: 10px;
     padding-right: 10px;
+    background-color: #d2dae2;
 }
 
 .func-container {

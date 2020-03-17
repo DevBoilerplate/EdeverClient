@@ -15,10 +15,14 @@ function App() {
     const [updateInfo, setUpdateInfo] = useState({})
     const [progress, setProgress] = useState(false)
     const [percent, setPercent] = useState(0)
+    const [initial, setInitial] = useState(true)
 
     useEffect(() => {
         const ipcRenderer = window.electron.ipcRenderer
-        ipcRenderer.send("update")
+        if (initial) {
+            ipcRenderer.send("update")
+            setInitial(false)
+        }
         ipcRenderer.on("message", (event, { message, data }) => {
             if (message === "update-available") {
                 setProgress(true)
@@ -27,6 +31,15 @@ function App() {
 
             if (message === "update-downloaded") {
                 setProgress(false)
+                const date = new Date()
+                const timestamp = date.getTime().toString()
+                const time = date.toLocaleString().replace(" ", "-")
+                const content = {
+                    name: updateInfo.path,
+                    tag: updateInfo.version,
+                    time: time
+                }
+                window.localStorage.setItem(timestamp, JSON.stringify(content))
             }
 
             if (message === "downloadProgress") {
@@ -37,7 +50,7 @@ function App() {
                 setUpdate(true)
             }
         })
-    }, [])
+    }, [initial, updateInfo])
 
     const minimizeWin = () => {
         let ipcRender = window.electron.ipcRenderer
