@@ -63,6 +63,15 @@
     align-items: center;
     padding-right: 5px;
     padding-left: 10px;
+    -webkit-app-region: drag;
+}
+
+.right-top-bar > div {
+    -webkit-app-region: no-drag;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .bar-right > .right-container {
@@ -210,7 +219,7 @@
     margin-bottom: 30px;
 }
 
-.progress{
+.progress {
     width: 100%;
     height: 25px;
     padding-left: 10px;

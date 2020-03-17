@@ -67,6 +67,7 @@ function Edever() {
                                         </span>
                                         <button
                                             className="download"
+                                            style={{ cursor: "pointer" }}
                                             onClick={() =>
                                                 getDownload(
                                                     i["name"],

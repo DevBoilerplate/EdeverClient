@@ -93,6 +93,7 @@ function Package() {
                             <div className="subline">
                                 <div>创建时间: {item.created_at}</div>
                                 <button
+                                    style={{ cursor: "pointer" }}
                                     className="download"
                                     onClick={() =>
                                         getDownload(

@@ -9,7 +9,7 @@ export default function Card(props) {
         shell.openExternal(url)
     }
 
-    const copyGitAddr = (url) => {
+    const copyGitAddr = url => {
         const clipboard = window.electron.clipboard
         clipboard.writeText(url)
         message.success("Git地址成功复制到剪贴板")
@@ -26,6 +26,7 @@ export default function Card(props) {
                     <span>
                         Git:{" "}
                         <span
+                            title="前往Git仓库"
                             onClick={() => {
                                 openUrl(props.url)
                             }}
@@ -39,8 +40,13 @@ export default function Card(props) {
                     </span>
                     <span onClick={() => copyGitAddr(props.url)}>
                         <IconFont
+                            title="复制"
                             type="icon-copy"
-                            style={{ fontSize: 20, color: "#3c40c6", cursor: "pointer" }}
+                            style={{
+                                fontSize: 20,
+                                color: "#3c40c6",
+                                cursor: "pointer"
+                            }}
                         />
                     </span>
                 </div>
