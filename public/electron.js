@@ -93,6 +93,5 @@ let checkForUpdates = () => {
 
 // 主进程主动发送消息给渲染进程函数
 function sendUpdateMessage(message, data) {
-    console.log({ message, data })
     webContents.send("message", { message, data })
 }

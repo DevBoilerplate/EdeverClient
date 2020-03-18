@@ -6,6 +6,10 @@
     padding: 20px;
 }
 
+.pack-items {
+    margin-bottom: 20px;
+}
+
 .pack-items > .header {
     width: 100%;
     display: -webkit-box;
