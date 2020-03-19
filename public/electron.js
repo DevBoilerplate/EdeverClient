@@ -68,6 +68,7 @@ let checkForUpdates = () => {
     })
     // 更新下载进度事件
     autoUpdater.on("download-progress", progressObj => {
+        mainWindow.setProgress(Math.round(progressObj.percent))
         sendUpdateMessage("downloadProgress", progressObj)
     })
     // 更新下载完成事件
