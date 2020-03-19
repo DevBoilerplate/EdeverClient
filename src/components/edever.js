@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Getreq } from "../utils/netrequest"
-import { Empty, message } from "antd"
+import {  message, Skeleton } from "antd"
 import { IconFont } from "./iconfont"
 import "./edever.css"
 
@@ -30,6 +30,11 @@ function Edever() {
     }
     return (
         <div className="Edever">
+            {!datas.length && (
+                <div className="pack-items">
+                    <Skeleton active paragraph={{ rows: 3 }} />
+                </div>
+            )}
             {datas.length !== 0 &&
                 datas.map(item => (
                     <div key={item.id} className="pack-items">
@@ -87,11 +92,11 @@ function Edever() {
                         ))}
                     </div>
                 ))}
-            {datas.length === 0 && (
+            {/* {datas.length === 0 && (
                 <div className="no-data">
                     <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
                 </div>
-            )}
+            )} */}
         </div>
     )
 }

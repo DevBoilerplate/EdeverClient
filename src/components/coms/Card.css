@@ -5,6 +5,7 @@
     background-color: white;
     box-shadow: 1px 1px #d2dae2;
     margin-bottom: 30px;
+    height: 90px;
 }
 
 .Card > .top {
@@ -44,4 +45,8 @@
     justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
+}
+
+.skeleton {
+    width: 100%;
 }

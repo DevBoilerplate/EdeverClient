@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Select, Empty, message } from "antd"
+import { Select, message, Skeleton } from "antd"
 import { Getreq } from "../utils/netrequest"
 import "./package.css"
 const { Option } = Select
@@ -74,6 +74,11 @@ function Package() {
                 </Select>
             </div>
             <div className="bottom">
+                {!datas.length && (
+                    <div className="pack-items">
+                        <Skeleton active paragraph={{ rows: 2 }} />
+                    </div>
+                )}
                 {datas.length !== 0 &&
                     datas.map(item => (
                         <div key={item.id} className="pack-items">
@@ -111,11 +116,11 @@ function Package() {
                             <div>{item.assets[0]["browser_download_url"]}</div>
                         </div>
                     ))}
-                {datas.length === 0 && (
+                {/* {datas.length === 0 && (
                     <div className="no-data">
                         <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
                     </div>
-                )}
+                )} */}
             </div>
         </div>
     )
