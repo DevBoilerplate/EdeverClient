@@ -17,14 +17,6 @@ function Package() {
                 })
                 break
             }
-            case "Sqlite3": {
-                Getreq(
-                    "https://gitee.com/api/v5/repos/HerbertHe/electron-react-antd-antv-sqlite3-cli/releases?page=1&per_page=20"
-                ).then(res => {
-                    if (res.status === 200) setDatas(res.data.reverse())
-                })
-                break
-            }
             case "TypeScript": {
                 Getreq(
                     "https://gitee.com/api/v5/repos/HerbertHe/electron-react-antd-antv-ts-cli/releases?page=1&per_page=20"
@@ -69,7 +61,6 @@ function Package() {
                 <div className="name">{pack}</div>
                 <Select defaultValue="Sample" onChange={changePack}>
                     <Option value="Sample">Sample</Option>
-                    <Option value="Sqlite3">Sqlite3</Option>
                     <Option value="TypeScript">TypeScript</Option>
                 </Select>
             </div>

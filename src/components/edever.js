@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Getreq } from "../utils/netrequest"
-import {  message, Skeleton } from "antd"
+import { message, Skeleton } from "antd"
 import { IconFont } from "./iconfont"
 import "./edever.css"
 
 function Edever() {
     const [datas, setDatas] = useState([])
-    useEffect(() => {
-        Getreq(
-            "https://gitee.com/api/v5/repos/HerbertHe/Edever/releases?page=1&per_page=20"
-        ).then(res => {
-            if (res.status === 200) setDatas(res.data.reverse())
-        })
-        return () => {}
-    }, [])
+    Getreq(
+        "https://gitee.com/api/v5/repos/HerbertHe/Edever/releases?page=1&per_page=20"
+    ).then((res) => {
+        if (res.status === 200) setDatas(res.data.reverse())
+    })
     const getDownload = (name, tag, url) => {
         message.info(`前往下载${name}`)
         const shell = window.electron.shell
@@ -24,7 +21,7 @@ function Edever() {
         const content = {
             name: name,
             tag: tag,
-            time: time
+            time: time,
         }
         window.localStorage.setItem(timestamp, JSON.stringify(content))
     }
@@ -36,7 +33,7 @@ function Edever() {
                 </div>
             )}
             {datas.length !== 0 &&
-                datas.map(item => (
+                datas.map((item) => (
                     <div key={item.id} className="pack-items">
                         <div className="header">
                             <div className="container">
@@ -54,7 +51,7 @@ function Edever() {
 
                         <div>创建时间: {item.created_at}</div>
 
-                        {item.assets.map(i => (
+                        {item.assets.map((i) => (
                             <div
                                 className="edevers"
                                 key={i["browser_download_url"]}
